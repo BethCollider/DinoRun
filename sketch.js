@@ -45,7 +45,7 @@ function setup() {
   ground = createSprite(200,180,400,20);
   ground.addImage("ground",groundImage);
   ground.x = ground.width /2;
-  ground.velocityX = -(6 + 3*score/100);
+  ground.velocityX = -(10 + 3*score/100);
   
   gameOver = createSprite(300,100);
   gameOver.addImage(gameOverImg);
@@ -77,7 +77,7 @@ function draw() {
    
     score = score + Math.round(getFrameRate()/60);
    
-    ground.velocityX = -(6 + 3*score/100);
+    ground.velocityX = -(10 + 3*score/100);
     
     //cambio de color de fondo cada vez que llegue a 1 mil
     if (score >= 100) {
@@ -88,7 +88,7 @@ function draw() {
     }
 
     if ((touches.length > 0 || keyDown("space")) && trex.y >= 160) {
-      trex.velocityY = -10;
+      trex.velocityY = -12;
       touches = [];
       
     }
@@ -140,7 +140,7 @@ function spawnClouds() {
   //escribir código aquí para aparecer nubes.
   if (frameCount % 60 === 0) {
     var cloud = createSprite(600,120,40,10);
-    cloud.y = Math.round(random(80,120));
+    cloud.y = Math.round(random(80,125));
     cloud.addImage(cloudImage);
     cloud.scale = 0.5;
     cloud.velocityX = -3;
@@ -162,7 +162,7 @@ function spawnObstacles() {
   if(frameCount % 60 === 0) {
     var obstacle = createSprite(600,165,10,40);
     //obstacle.debug = true;
-    obstacle.velocityX = -(6 + 3*score/100);
+    obstacle.velocityX = -(10 + 3*score/100);
     
     //generar obstáculos aleatorios
     var rand = Math.round(random(1,6));
